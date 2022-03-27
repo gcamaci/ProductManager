@@ -1,0 +1,70 @@
+*{
+    padding: 0;
+    margin: 0;
+    
+}
+header{
+    margin:15px
+}
+.desc{
+    border-bottom: solid;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.main-wrapper{
+    border: solid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    gap: 5px;
+
+}
+#main-container{
+    width: 40vw;
+    border: solid;
+    border-bottom: none;
+    min-width: 500px;
+    
+}
+
+#name,#date,#master-event,#venue{
+    width: 80%;
+    height: 25px ;
+    
+}
+.date-container{
+    border-bottom: solid;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+.date{
+    width: 50%;  
+}
+.tags{
+    padding: 0px;
+    margin: 0;
+}
+.btn{
+    width:25px;
+    height:25px;
+}
+.newDate{
+    display: grid;
+    grid-template-columns:repeat(2,1fr) ;
+    grid-template-rows: repeat(2,1fr);
+    
+    gap: 2px;
+    width: 100%;
+}
+.add-delete{
+    width: 40vw;
+    display: flex;
+    justify-content: flex-end;
+    gap: 5px;
+}
