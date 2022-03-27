@@ -41,8 +41,8 @@ submit.addEventListener('click', () => {
     const venue = document.querySelector('#venue');
 
     const newInputs = document.querySelectorAll('.newInput');
-    newInputs.forEach((newInput) => {
-        let currentDate =newInput.value;
+    newInputs.forEach((nInput) => {
+        let currentDate =nInput.value;
         dates.push(currentDate)
     });
 
