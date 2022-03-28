@@ -21,7 +21,7 @@ const makeDate = (a) => {
         
     }else{
         const newInput = document.querySelector('.newInput');
-        newDate.removeChild(newInput);
+        newDate.removeChild(newDate.lastChild);
         counter--
     }
     
