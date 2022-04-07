@@ -13,8 +13,10 @@ newDate.classList.add('newDate');
 const makeDate = (a) => {
     if(a === "add"){
         const newInput = document.createElement('input');
-        newInput.type = 'datetime-local';
+        newInput.type = 'datetime';
         newInput.classList.add('newInput');
+        newInput.classList.add('date');
+        newInput.setAttribute('name','date');
         newDate.appendChild(newInput);
         addDates.insertBefore(newDate,addDates.children[2]);
         counter++
@@ -35,20 +37,6 @@ buttons.forEach((button) => {
     });
 });
 
-submit.addEventListener('click', () => {
-    const name = document.querySelector('#name');
-    const master = document.querySelector('#master-event');
-    const venue = document.querySelector('#venue');
 
-    const newInputs = document.querySelectorAll('.newInput');
-    newInputs.forEach((nInput) => {
-        let currentDate =nInput.value;
-        dates.push(currentDate)
-    });
-
-    for(let i = 0; i <= dates.length ; i++){
-        console.log(`Event: ${name.value} Date: ${dates[i]} Venue: ${venue.value} `)
-    }
-});
 
    

@@ -14,42 +14,36 @@ header{
     align-items: center;
 }
 .main-wrapper{
-    border: solid;
+
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
     gap: 5px;
+    width: 100vw;
+    
+    
 
 }
 #main-container{
-    width: 40vw;
+    width: 50vw;
     border: solid;
-    border-bottom: none;
     min-width: 500px;
     
 }
 
-#name,#date,#master-event,#venue{
-    width: 80%;
+#name,#master-event,#venue{
+    width: 75%;
     height: 25px ;
-    
 }
 .date-container{
     border-bottom: solid;
     padding: 5px;
     display: flex;
-    align-items: center;
     justify-content: space-between;
 
 }
-.date{
-    width: 50%;  
-}
-.tags{
-    padding: 0px;
-    margin: 0;
-}
+
 .btn{
     width:25px;
     height:25px;
@@ -58,13 +52,28 @@ header{
     display: grid;
     grid-template-columns:repeat(2,1fr) ;
     grid-template-rows: repeat(2,1fr);
-    
+    border: solid;
     gap: 2px;
-    width: 100%;
+    
+    
+   
 }
 .add-delete{
-    width: 40vw;
+    
     display: flex;
     justify-content: flex-end;
     gap: 5px;
+}
+.date{
+    height: 25px;
+    border: solid black;
+    width: 100%;
+    
+}
+label{
+    border: solid;
+    width: 20%; 
+}
+input{
+    width: 30%;
 }
