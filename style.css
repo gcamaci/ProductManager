@@ -26,7 +26,7 @@ header{
 
 }
 #main-container{
-    width: 50vw;
+    width: 30vw;
     border: solid;
     min-width: 500px;
     
@@ -35,6 +35,9 @@ header{
 #name,#master-event,#venue{
     width: 75%;
     height: 25px ;
+}
+#date{
+    width: 60%;
 }
 .date-container{
     border-bottom: solid;
@@ -52,8 +55,11 @@ header{
     display: grid;
     grid-template-columns:repeat(2,1fr) ;
     grid-template-rows: repeat(2,1fr);
-    border: solid;
-    gap: 2px;
+    border-bottom: solid black;
+    
+    
+
+    
     
     
    
@@ -66,13 +72,17 @@ header{
 }
 .date{
     height: 25px;
-    border: solid black;
-    width: 100%;
+    width: 95%;
+    margin:4px;
+    
+    
     
 }
 label{
-    border: solid;
-    width: 20%; 
+    
+    width: 20%;
+    display: flex;
+    justify-content: flex-end;
 }
 input{
     width: 30%;
