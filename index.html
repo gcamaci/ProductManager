@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Product Manager</title>
+    <script lang="javascript" src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+    <script lang="javascript" src="FileSaver.js"></script>
 </head>
 <body>
     <div class="main-wrapper">
@@ -13,7 +15,7 @@
             <h1>Production Manager</h1>
         </header>
         <div id="main-container">
-            <form action="http://httpbin.org/post" method="post" class="name-container">
+            <form action="/" method="post" class="name-container">
                 <div class="desc">
                     <label for="name">Name:</label>
                     <input type="text" id="name" name="name">
@@ -35,12 +37,15 @@
                     <input type="text" id="venue" name="venue">
                 </div>
                 <div class="submit-btn">
-                    <button id ="submit" type="submit">Submit</button>
+                    <button id ="submit" type="button">Submit</button>
                 </div>
             </form>
         </div>
     </div>
     
+    
+
+
     <script src="script.js"></script>
 </body>
 </html>
