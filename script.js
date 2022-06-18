@@ -1,87 +1,121 @@
-let dates = [];
-let counter = 0;
-let lastInput;
-
-const addDates = document.querySelector('.name-container');
-const addButton = document.querySelector('.add-date');
-const newDate = document.createElement('div');
-const deleteDates = document.querySelector('.delete-date');
-const submit = document.querySelector('#submit')
-newDate.classList.add('newDate');
-
-
-const makeDate = (a) => {
-    if(a === "add"){
-        const newInput = document.createElement('input');
-        newInput.type = 'datetime';
-        newInput.classList.add('newInput');
-        newInput.classList.add('date');
-        newInput.setAttribute('name','date');
-        newDate.appendChild(newInput);
-        addDates.insertBefore(newDate,addDates.children[2]);
-        counter++
-        
-    }else{
-        const newInput = document.querySelector('.newInput');
-        newDate.removeChild(newDate.lastChild);
-        counter--
-    }
-    
+const Production = (name, masterEvent, date, venue) => {
+    return{ name,masterEvent,date,venue}
 };
 
-const buttons = document.querySelectorAll('.btn');
-buttons.forEach((button) => {
-    button.addEventListener('click', () => {
-        makeDate(button.id);
-        console.log(counter);
-    });
-});
 
-
-
-const person = {
-    name: 'Tom Segura',
-    masterEvent: 'Tom Segura',
-    venue: "Improv Comedy Club",
-    date: "2022-03-09 20:00:00"
-}
-
-const person2= {
-    name: 'Tom Segura',
-    masterEvent: 'Tom Segura',
-    venue: 'Improv Comedy Club',
-    date: '2022-03-10 20:00:00'
-}
-const person3= {
-    name: 'Tom Segura',
-    masterEvent: 'Tom Segura',
-    venue: 'Improv Comedy Club',
-    date: '2022-03-10 20:00:00'
-}
-
-const personArray = [person,person2,person3];
+let eventArray = [];
 
 const wb = XLSX.utils.book_new();
 wb.SheetNames.push("Test Sheet");
 let ws_data = []
-personArray.forEach((per)=>{
+
+
+const displayController = (() => {
+    let dates = [];
+    let counter = 0;
+    let lastInput;
+    const newDate = document.createElement('div');
+    const create = document.getElementById('create');
+    newDate.classList.add('newDate');
+
+    
+
+
+    const makeDate = (a) => {
+        const addDates = document.querySelector('.name-container');
+        const addButton = document.querySelector('.add-date');
+        
+        const deleteDates = document.querySelector('.delete-date');
+        if(a === "add"){
+            const newInput = document.createElement('input');
+            newInput.type = 'datetime';
+            newInput.classList.add('newInput');
+            newInput.classList.add('date');
+            newInput.setAttribute('name','date');
+            newDate.appendChild(newInput);
+            addDates.insertBefore(newDate,addDates.children[2]);
+            counter--
+            
+        }else{
+            const newInput = document.querySelector('.newInput');
+            newDate.removeChild(newDate.lastChild);
+            counter--
+        }
+        
+    };
+
+    const createEvent = () => {
+        const allDates = document.querySelectorAll('.date');
+        const name = document.getElementById('name');
+        const masterEvent = document.getElementById('master-event');
+        const venue = document.getElementById('venue');
+        allDates.forEach((date)=>{
+            const newEvent = Production(name.value,masterEvent.value,date.value,venue.value);
+            eventArray.push(newEvent);
+            date.value = ''
+            //console.log(date.value);
+            //console.log(dates)
+        });
+        name.value = '';
+        venue.value = '';
+        masterEvent.value = ''
+
+    };
+
+    create.addEventListener('click',()=>{
+        createEvent()
+        eventArray.forEach((per)=>{
+            let rowArray = [per.name,per.masterEvent,per.venue,per.date]
+            ws_data.push(rowArray);
+        });
+        
+        const ws = XLSX.utils.aoa_to_sheet(ws_data);
+        wb.Sheets["Test Sheet"] = ws;
+            
+    
+        
+    });
+
+    const buttons = document.querySelectorAll('.btn');
+    buttons.forEach((button) => {
+        button.addEventListener('click', () => {
+            makeDate(button.id);
+       
+        });
+    }); 
+
+    
+    return {makeDate,dates}
+})();
+
+
+const submit = document.querySelector('#submit');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+eventArray.forEach((per)=>{
     let rowArray = [per.name,per.masterEvent,per.venue,per.date]
     ws_data.push(rowArray);
 });
-/*
-const ws_data = [
-    [person.name,person.masterEvent,person.venue,person.date],
-    [person2.name,person2.masterEvent,person2.venue,person2.date],
-    [person3.name,person3.masterEvent,person3.venue,person3.date]
-]
-*/
+
 const ws = XLSX.utils.aoa_to_sheet(ws_data);
 wb.Sheets["Test Sheet"] = ws;
+*/
     
-
-//const ws_data = [[person.name,person.masterEvent,person.venue,person.date]]
-
-
 
 const wbout = XLSX.write(wb,{bookType: 'xlsx', type:'binary'});
 
@@ -98,3 +132,4 @@ submit.addEventListener('click',() => {
     saveAs(new Blob([s2ab(wbout)],{type:"application/octet-stream"}), 'test.xlsx');
 
 });
+
