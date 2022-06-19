@@ -3,6 +3,23 @@
     margin: 0;
     
 }
+:root.dark {
+    --background-color: #3e4145;
+    --color-base-bg: rgb(18, 18, 18);
+    --color-base-text: rgb(240, 240, 240);
+    --color-btn-bg: rgb(36, 36, 36);
+}
+  
+:root.light {
+    
+    --color-base-bg: rgb(240, 240, 240);
+    --color-base-text: rgb(18, 18, 18);
+    --color-btn-bg: rgb(220, 220, 220);
+}
+
+body{
+    background-color: var(--background-color);
+}
 header{
     margin:15px
 }
@@ -29,6 +46,7 @@ header{
     width: 30vw;
     border: solid;
     min-width: 500px;
+    border: 3px solid #d873c7;
     
 }
 

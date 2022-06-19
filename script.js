@@ -113,7 +113,7 @@ function createBook() {
     wb.SheetNames.push("Test Sheet");
     let ws_data = [['Edit','Event','Venue','Event Date','EventTime','Quantity','Section','Row','SeatFrom','SeatThru','Notes','Cost','TicketID','EDelivery','InHandDate','Instant','SplitValue','StockType','Spec']]
     displayController.eventArray.forEach((per)=>{
-        let rowArray = [per.name,per.masterEvent,per.venue,per.date]
+        let rowArray = ['Y',per.name,per.venue,per.date,per.time,'1','1','1','1','2','','0','','Y','','','','ELECTRONIC','N']
         ws_data.push(rowArray);
     });
 
