@@ -111,7 +111,7 @@ function createBook() {
     const submit = document.querySelector('#submit');
     const wb = XLSX.utils.book_new();
     wb.SheetNames.push("Test Sheet");
-    let ws_data = []
+    let ws_data = [['Edit','Event','Venue','Event Date','EventTime','Quantity','Section','Row','SeatFrom','SeatThru','Notes','Cost','TicketID','EDelivery','InHandDate','Instant','SplitValue','StockType','Spec']]
     displayController.eventArray.forEach((per)=>{
         let rowArray = [per.name,per.masterEvent,per.venue,per.date]
         ws_data.push(rowArray);
