@@ -6,7 +6,7 @@ const displayController = (() => {
     let eventArray = [];
     let dates = [];
     let counter = 0;
-    let lastInput;
+    const submit = document.querySelector('#submit');
     const newDate = document.createElement('div');
     const create = document.getElementById('create');
     const newBook = document.getElementById('new-book');
@@ -91,7 +91,9 @@ const displayController = (() => {
     });
 
     newBook.addEventListener('click', () => {
-        createBook()
+        createBook();
+        submit.style.backgroundColor = 'green'
+        
     });
 
     const buttons = document.querySelectorAll('.btn');

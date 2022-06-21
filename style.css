@@ -1,20 +1,28 @@
 *{
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
     
 }
 :root.dark {
-    --background-color: #3e4145;
-    --color-base-bg: rgb(18, 18, 18);
-    --color-base-text: rgb(240, 240, 240);
-    --color-btn-bg: rgb(36, 36, 36);
+    --background-color: #18191A;
+    --card-color: #242526;
+    --color-base-bg: #3a3b3c;
+    --input-font-color: #e4e6eb;
+    --color-border:1px solid #b0b3b8;
+    --label-font-color: #e4e6eb;
+    --color-input: #3a3b3c;
+    --input-border:1px solid #b0b3b8;
 }
   
 :root.light {
-    
-    --color-base-bg: rgb(240, 240, 240);
-    --color-base-text: rgb(18, 18, 18);
-    --color-btn-bg: rgb(220, 220, 220);
+    --background-color:#fffbfc;
+    --color-base-bg: rgba(4, 9, 44,.8);
+    --color-input: rgba(4, 9, 44,.1);
+    --color-border:5px solid rgb(4,9,44);
+    --input-border: 2px solid rgb(4,9,44);
+    --label-font-color: rgb(4,9,44);
+    --input-font-color: rgb(4,9,44)
 }
 
 body{
@@ -24,11 +32,10 @@ header{
     margin:15px
 }
 .desc{
-    border-bottom: solid;
-    padding: 5px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 10px;
+    height: 30px;
 }
 .main-wrapper{
 
@@ -45,25 +52,29 @@ header{
 #main-container{
     width: 30vw;
     border: solid;
-    min-width: 500px;
-    border: 3px solid #d873c7;
+    width: 450px;
+    border: var(--color-border);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    background-color: var(--card-color);
+    box-shadow: var(--box-border);
+    
+
     
 }
 
-#name,#master-event,#venue{
-    width: 75%;
-    height: 25px ;
-}
-#date{
-    width: 60%;
-}
-.date-container{
-    border-bottom: solid;
-    padding: 5px;
+.name-container{
+    
     display: flex;
-    justify-content: space-between;
-
+    flex-direction: column;
+    gap:10px;
+    
+    
+    
 }
+
 
 .btn{
     width:25px;
@@ -73,35 +84,77 @@ header{
     display: grid;
     grid-template-columns:repeat(2,1fr) ;
     grid-template-rows: repeat(2,1fr);
-    border-bottom: solid black;
-    
-    
-
-    
-    
-    
    
+    
+ 
+}
+#add,#delete{
+    background-color: var(--color-base-bg);
+    border: none;
+    color: white;
+    transition: all 0.3s ease;
+    transform: scale(1)
+}
+#add:hover,#delete:hover{
+    transform: scale(1.05);
+    background-color: #ec058e;
 }
 .add-delete{
-    
     display: flex;
-    justify-content: flex-end;
+    align-items: center;
     gap: 5px;
 }
 .date{
-    height: 25px;
+    height: 30px;
     width: 95%;
     margin:4px;
     
     
     
+    
+}
+.style-date {
+    margin: 0px;
+    width: 100%;
 }
 label{
-    
-    width: 20%;
     display: flex;
     justify-content: flex-end;
+    align-items: center;
+    color: var(--label-font-color);
+    
+    
 }
 input{
-    width: 30%;
+    width: 100%;
+    padding: 2px;
+    border-radius: 5px;
+    border: var(--input-border);
+    background-color: var(--color-input);
+    color:var(--input-font-color);
+}
+.submit-btn{
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center
+}
+
+.style-btn{
+    width:100px;
+    background-color: var(--color-base-bg);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    height: 25px;
+    transition: all 0.3s ease;
+    transform: scale(1)
+
+
+}
+
+.style-btn:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+    background-color: #ec058e;
 }

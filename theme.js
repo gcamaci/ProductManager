@@ -1,5 +1,6 @@
 function setTheme() {
     const root = document.documentElement;
+    //root.className = "dark";
     const newTheme = root.className === 'dark' ? 'light' : 'dark';
     root.className = newTheme;
     
